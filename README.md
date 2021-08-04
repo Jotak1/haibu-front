@@ -1,7 +1,10 @@
 # HaibuFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+Proyecto realizado con [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2,  [Angular Material](https://material.angular.io/) version 12.1.4.
+Consiste en una aplicación responsiva que muestra una lista de personas que pertenecen a la empresa Haibu y filtra su contenido según Nombre, Apellido o Rut
 
+Sitio desplegado en Github
+https://jotak1.github.io/haibu-front/#/users
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

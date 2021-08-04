@@ -1,0 +1,27 @@
+<mat-spinner *ngIf="showSpinner"></mat-spinner>
+<mat-card class="example-card" *ngIf="!showSpinner">
+  <mat-card-header>
+    <mat-card-title
+      >Nombre: {{ user.nombre }} {{ user.apellido }}</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>Id: {{ user.id }} <span class="spacer"></span>Activo: {{ user.activo===1?"Activo":"Inactivo" }}</mat-list-item>
+      <div class="alert" *ngIf="user.rutInvalido">Rut Invalido!</div>
+      <mat-list-item>Rut: {{ user.rut }} </mat-list-item>
+      <mat-list-item>Telefono: {{ user.telefono }}</mat-list-item>
+      <mat-list-item>
+        Direccion: {{ user.direccion.calle }} {{ user.direccion.numero }},
+        {{ user.direccion.comuna }}</mat-list-item
+      >
+      <div class="alert" *ngIf="user.fechaInvalida">Fecha de Nacimiento Invalida!</div>
+      <mat-list-item>
+        Fecha de Nacimiento: {{ user.fechaNacimiento }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="goBack()">Volver</button>
+  </mat-card-actions>
+</mat-card>

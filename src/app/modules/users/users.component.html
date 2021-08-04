@@ -1,0 +1,65 @@
+
+<div class="mat-elevation-z8" >
+  <mat-form-field appearance="fill" style="margin: 1%; width: 98%">
+    <mat-label>Buscar por Nombre, Apellido o Rut</mat-label>
+    <input
+      matInput
+      autocomplete="false"
+      (keyup)="applyFilter($event)"
+      placeholder="Alexander"
+      #input
+    />
+  </mat-form-field>
+  <mat-spinner *ngIf="showSpinner" class="spinner"></mat-spinner>
+  <table mat-table [dataSource]="dataSource" *ngIf="!showSpinner">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="rut">
+      <th mat-header-cell *matHeaderCellDef>Rut</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.rut }}
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          color="warn"
+          *ngIf="element.rutInvalido"
+          matTooltip="Rut Invalido"
+          matTooltipPosition="above"
+          >error</mat-icon
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="getDetail(row)"
+      style="cursor: pointer"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
